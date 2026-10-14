@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:widget": "ng build --configuration=widget",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:cargo-calculator": "node dist/cargo-calculator/server/server.mjs"

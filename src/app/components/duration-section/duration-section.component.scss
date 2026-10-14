@@ -1,0 +1,27 @@
+@use '../../../styles/section';
+@use '../../../styles/controls';
+
+.cc-duration {
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.25rem;
+  }
+
+  &__value {
+    flex-shrink: 0;
+    color: var(--cc-accent);
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
+
+  &__scale {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.25rem;
+    color: #64748b;
+    font-size: 10px;
+  }
+}

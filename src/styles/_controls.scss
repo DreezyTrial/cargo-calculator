@@ -1,0 +1,119 @@
+.cc-label {
+  color: var(--cc-muted-strong);
+  font-size: 0.75rem;
+  font-weight: 500;
+
+  &--block {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  &--muted {
+    color: var(--cc-muted);
+    font-weight: 400;
+  }
+}
+
+.cc-range {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin: 0;
+  accent-color: var(--cc-accent);
+  cursor: pointer;
+  background: var(--cc-border);
+  height: 0.5rem;
+  border-radius: 0.5rem;
+
+  &--thin {
+    height: 0.375rem;
+    border-radius: 0.25rem;
+  }
+}
+
+.cc-checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  accent-color: var(--cc-accent);
+  cursor: pointer;
+}
+
+.cc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  width: 100%;
+  margin: 0;
+  padding: 0.875rem 1rem;
+  border: 0;
+  border-radius: 0.75rem;
+  font: inherit;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  cursor: pointer;
+  max-width: 100%;
+
+  &--primary {
+    background: linear-gradient(90deg, var(--cc-accent-strong), var(--cc-accent));
+    color: var(--cc-on-accent);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 20%);
+
+    &:hover {
+      background: linear-gradient(90deg, var(--cc-accent), #fcd34d);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
+  &--desktop {
+    display: none;
+    font-size: 0.875rem;
+
+    @media (min-width: 1024px) {
+      display: inline-flex;
+    }
+  }
+
+  &--compact {
+    width: auto;
+    flex-shrink: 0;
+    font-size: 0.75rem;
+
+    @media (min-width: 400px) {
+      font-size: 0.875rem;
+    }
+  }
+}
+
+.cc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cc-field {
+  display: block;
+}
+
+.cc-input {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--cc-border);
+  border-radius: 0.5rem;
+  background: #0f172a;
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+
+  &:focus {
+    outline: none;
+    border-color: var(--cc-accent);
+  }
+}

@@ -1,0 +1,18 @@
+:root {
+  --cc-font: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --cc-bg: #0f172a;
+  --cc-surface: #1e293b;
+  --cc-surface-muted: rgb(15 23 42 / 50%);
+  --cc-border: #334155;
+  --cc-border-soft: rgb(51 65 85 / 60%);
+  --cc-text: #f1f5f9;
+  --cc-muted: #94a3b8;
+  --cc-muted-strong: #cbd5e1;
+  --cc-accent: #fbbf24;
+  --cc-accent-strong: #f59e0b;
+  --cc-success: #34d399;
+  --cc-success-dot: #10b981;
+  --cc-on-accent: #020617;
+  --cc-radius: 1rem;
+  --cc-safe-bottom: env(safe-area-inset-bottom, 0px);
+}

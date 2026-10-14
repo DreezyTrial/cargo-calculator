@@ -1,0 +1,35 @@
+<div class="cc-calculator">
+  @if (!compactHeader()) {
+    <header class="cc-header">
+      <div class="cc-header__brand">
+        <div class="cc-header__title-row">
+          <span class="cc-header__icon">🚚</span>
+          <h1 class="cc-header__title">{{ title() }}</h1>
+        </div>
+        <p class="cc-header__subtitle">{{ subtitle() }}</p>
+      </div>
+      <a class="cc-dispatch" [href]="'tel:' + dispatcherPhone()">
+        <div class="cc-dispatch__text">
+          <p class="cc-dispatch__label">Диспетчерська (24/7)</p>
+          <p class="cc-dispatch__phone">{{ dispatcherPhone() }}</p>
+        </div>
+        <span class="cc-dispatch__status"></span>
+      </a>
+    </header>
+  }
+
+  <div class="cc-calculator__layout">
+    <div class="cc-calculator__main">
+      <app-vehicle-selector />
+      <app-duration-section />
+      <app-movers-section />
+      <app-extras-section />
+    </div>
+
+    <div class="cc-calculator__aside">
+      <app-price-summary [cityLabel]="cityLabel()" />
+    </div>
+  </div>
+
+  <app-order-modal />
+</div>

@@ -1,0 +1,79 @@
+<section class="cc-section">
+  <h2 class="cc-section__title">
+    <span class="cc-section__step">3</span>
+    <span>Послуги вантажників та поверховість</span>
+  </h2>
+
+  <div>
+    <label class="cc-label cc-label--block">Кількість вантажників ({{ ratePerHour }} грн/год за особу)</label>
+    <div class="cc-choice-grid">
+      @for (count of moverOptions; track count) {
+        <button
+          type="button"
+          class="cc-choice"
+          [class.cc-choice--active]="state.moversCount() === count"
+          [class.cc-choice--wide]="count === 0"
+          (click)="state.moversCount.set(count)"
+        >
+          {{ count === 0 ? 'Без вантажників' : count + ' чол' }}
+        </button>
+      }
+    </div>
+  </div>
+
+  @if (state.moversCount() > 0) {
+    <div class="cc-stop-grid">
+      <div class="cc-stop">
+        <span class="cc-stop__title">Точка А (Завантаження)</span>
+        <div class="cc-stop__row">
+          <label class="cc-label cc-label--muted">Є вантажний ліфт?</label>
+          <input
+            class="cc-checkbox"
+            type="checkbox"
+            [ngModel]="state.hasLiftFrom()"
+            (ngModelChange)="state.hasLiftFrom.set($event)"
+          />
+        </div>
+        @if (!state.hasLiftFrom()) {
+          <div>
+            <label class="cc-label cc-label--muted">Поверх: {{ state.floorsFrom() }}</label>
+            <input
+              class="cc-range cc-range--thin"
+              type="range"
+              min="1"
+              max="16"
+              [ngModel]="state.floorsFrom()"
+              (ngModelChange)="state.floorsFrom.set(+$event)"
+            />
+          </div>
+        }
+      </div>
+
+      <div class="cc-stop">
+        <span class="cc-stop__title">Точка Б (Вивантаження)</span>
+        <div class="cc-stop__row">
+          <label class="cc-label cc-label--muted">Є вантажний ліфт?</label>
+          <input
+            class="cc-checkbox"
+            type="checkbox"
+            [ngModel]="state.hasLiftTo()"
+            (ngModelChange)="state.hasLiftTo.set($event)"
+          />
+        </div>
+        @if (!state.hasLiftTo()) {
+          <div>
+            <label class="cc-label cc-label--muted">Поверх: {{ state.floorsTo() }}</label>
+            <input
+              class="cc-range cc-range--thin"
+              type="range"
+              min="1"
+              max="16"
+              [ngModel]="state.floorsTo()"
+              (ngModelChange)="state.floorsTo.set(+$event)"
+            />
+          </div>
+        }
+      </div>
+    </div>
+  }
+</section>

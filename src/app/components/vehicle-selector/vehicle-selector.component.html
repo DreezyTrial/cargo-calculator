@@ -1,0 +1,31 @@
+<section class="cc-section">
+  <h2 class="cc-section__title">
+    <span class="cc-section__step">1</span>
+    <span>Оберіть автотранспорт</span>
+  </h2>
+
+  <div class="cc-vehicle-grid">
+    @for (v of vehicles; track v.id) {
+      <button
+        type="button"
+        class="cc-vehicle-card"
+        [class.cc-vehicle-card--selected]="state.selectedVehicleId() === v.id"
+        (click)="selectVehicle(v.id)"
+      >
+        <div class="cc-vehicle-card__body">
+          <div class="cc-vehicle-card__icon">{{ v.icon }}</div>
+          <h3 class="cc-vehicle-card__name">{{ v.name }}</h3>
+          <div class="cc-vehicle-card__meta">
+            <p>Вантажопідйомність: <span class="cc-vehicle-card__value">{{ v.capacity }}</span></p>
+            <p>Об'єм: <span class="cc-vehicle-card__value">{{ v.volume }}</span></p>
+          </div>
+        </div>
+        <div class="cc-vehicle-card__footer">
+          <span class="cc-vehicle-card__price">від {{ v.basePrice }} грн</span>
+          <span class="cc-vehicle-card__min">мін. {{ v.minHours }} год</span>
+        </div>
+      </button>
+    }
+  </div>
+  <p class="cc-hint">💡 {{ state.selectedVehicle().desc }}</p>
+</section>

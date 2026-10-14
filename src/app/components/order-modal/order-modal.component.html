@@ -1,0 +1,52 @@
+@if (orderForm.isModalOpen()) {
+  <div class="cc-modal">
+    <div class="cc-modal__dialog">
+      <button type="button" class="cc-modal__close" (click)="orderForm.closeModal()" aria-label="Закрити">✕</button>
+
+      @if (!orderForm.orderSubmitted()) {
+        <h3 class="cc-modal__title">Оформлення замовлення</h3>
+        <p class="cc-modal__lead">
+          Попередня вартість:
+          <span class="cc-modal__price">{{ state.priceBreakdown().total }} грн</span>
+        </p>
+
+        <form class="cc-form" (submit)="submitOrder($event)">
+          <div class="cc-field">
+            <label class="cc-label cc-label--block">Ваше ім'я</label>
+            <input
+              class="cc-input"
+              type="text"
+              [ngModel]="orderForm.orderName()"
+              (ngModelChange)="orderForm.orderName.set($event)"
+              name="orderName"
+              placeholder="Андрій"
+              autocomplete="name"
+              required
+            />
+          </div>
+          <div class="cc-field">
+            <label class="cc-label cc-label--block">Номер телефону</label>
+            <input
+              class="cc-input"
+              type="tel"
+              [ngModel]="orderForm.orderPhone()"
+              (ngModelChange)="orderForm.orderPhone.set($event)"
+              name="orderPhone"
+              placeholder="+380 (97) 000-00-00"
+              autocomplete="tel"
+              inputmode="tel"
+              required
+            />
+          </div>
+          <button type="submit" class="cc-btn cc-btn--primary">Підтвердити замовлення</button>
+        </form>
+      } @else {
+        <div class="cc-modal__success">
+          <div class="cc-modal__success-icon">🎉</div>
+          <h4 class="cc-modal__success-title">Заявку прийнято!</h4>
+          <p class="cc-modal__success-text">Диспетчер передзвонить вам протягом 5 хвилин для уточнення деталей.</p>
+        </div>
+      }
+    </div>
+  </div>
+}

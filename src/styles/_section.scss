@@ -1,0 +1,44 @@
+.cc-section {
+  padding: 1rem;
+  border: 1px solid var(--cc-border-soft);
+  border-radius: var(--cc-radius);
+  background: rgb(30 41 59 / 50%);
+  backdrop-filter: blur(8px);
+
+  @media (min-width: 640px) {
+    padding: 1.5rem;
+  }
+
+  &__title {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin: 0 0 1rem;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+
+    @media (min-width: 640px) {
+      align-items: center;
+      font-size: 1.125rem;
+    }
+
+    &--tight {
+      margin-bottom: 0.75rem;
+    }
+  }
+
+  &__step {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 999px;
+    background: var(--cc-accent);
+    color: var(--cc-on-accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+}

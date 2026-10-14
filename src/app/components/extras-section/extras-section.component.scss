@@ -1,0 +1,47 @@
+@use '../../../styles/section';
+@use '../../../styles/controls';
+
+.cc-extra-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.cc-extra {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 44px;
+  padding: 0.75rem;
+  border: 1px solid rgb(51 65 85 / 50%);
+  border-radius: 0.75rem;
+  background: var(--cc-surface-muted);
+  cursor: pointer;
+
+  &:hover {
+    border-color: #475569;
+  }
+
+  &--wide {
+    @media (min-width: 640px) and (max-width: 1023px) {
+      grid-column: span 2;
+    }
+  }
+
+  &__text {
+    color: #e2e8f0;
+    font-size: 0.75rem;
+
+    @media (min-width: 640px) {
+      font-size: 0.875rem;
+    }
+  }
+}

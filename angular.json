@@ -42,6 +42,19 @@
             }
           },
           "configurations": {
+            "widget": {
+              "outputMode": "static",
+              "ssr": false,
+              "optimization": true,
+              "outputHashing": "all",
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                }
+              ]
+            },
             "production": {
               "budgets": [
                 {

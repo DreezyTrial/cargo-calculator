@@ -1,0 +1,59 @@
+@let breakdown = state.priceBreakdown();
+
+<div class="cc-summary">
+  <h3 class="cc-summary__title">
+    <span>Розрахунок вартості</span>
+    <span class="cc-summary__city">{{ cityLabel() }}</span>
+  </h3>
+
+  <div class="cc-summary__list">
+    <div class="cc-summary__row">
+      <span class="cc-summary__name">{{ state.selectedVehicle().name }} ({{ state.durationHours() }} год):</span>
+      <span class="cc-summary__amount">{{ breakdown.vehicle }} грн</span>
+    </div>
+    <div class="cc-summary__row">
+      <span>Вантажники ({{ state.moversCount() }} чол):</span>
+      <span class="cc-summary__amount">{{ breakdown.movers }} грн</span>
+    </div>
+    @if (breakdown.extras > 0) {
+      <div class="cc-summary__row cc-summary__row--extra">
+        <span>Дод. послуги:</span>
+        <span class="cc-summary__amount">+{{ breakdown.extras }} грн</span>
+      </div>
+    }
+  </div>
+
+  <div class="cc-summary__total">
+    <p class="cc-summary__total-label">Загальна ціна:</p>
+    <div class="cc-summary__total-value">
+      <span class="cc-summary__total-number">{{ breakdown.total }}</span>
+      <span class="cc-summary__total-currency">грн</span>
+    </div>
+    <p class="cc-summary__note">Орієнтовна вартість без прихованих платежів</p>
+  </div>
+
+  <button type="button" class="cc-btn cc-btn--primary cc-btn--desktop" (click)="orderForm.openModal()">
+    Замовити перевезення
+  </button>
+
+  <div class="cc-summary__perks">
+    <p>✓ Матеріальна відповідальність за вантаж</p>
+    <p>✓ Прозорий розрахунок онлайн</p>
+  </div>
+</div>
+
+@if (!orderForm.isModalOpen()) {
+  <div class="cc-bar">
+    <div class="cc-bar__inner">
+      <div class="cc-bar__info">
+        <p class="cc-bar__label">Разом</p>
+        <p class="cc-bar__total">
+          {{ breakdown.total }} <span class="cc-bar__currency">грн</span>
+        </p>
+      </div>
+      <button type="button" class="cc-btn cc-btn--primary cc-btn--compact" (click)="orderForm.openModal()">
+        Замовити
+      </button>
+    </div>
+  </div>
+}

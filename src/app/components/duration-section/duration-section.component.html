@@ -1,0 +1,26 @@
+<section class="cc-section">
+  <h2 class="cc-section__title">
+    <span class="cc-section__step">2</span>
+    <span>Час оренди транспорту</span>
+  </h2>
+
+  <div class="cc-duration">
+    <div class="cc-duration__head">
+      <label class="cc-label">Час роботи (годин)</label>
+      <span class="cc-duration__value">{{ state.durationHours() }} год</span>
+    </div>
+    <input
+      class="cc-range"
+      type="range"
+      [min]="state.selectedVehicle().minHours"
+      [max]="maxHours"
+      step="1"
+      [ngModel]="state.durationHours()"
+      (ngModelChange)="state.durationHours.set(+$event)"
+    />
+    <div class="cc-duration__scale">
+      <span>Мін: {{ state.selectedVehicle().minHours }} год</span>
+      <span>{{ maxHours }} год</span>
+    </div>
+  </div>
+</section>
