@@ -74,6 +74,13 @@
     font-size: 0.75rem;
   }
 
+  &__hint {
+    margin: -0.25rem 0 0.5rem;
+    color: var(--cc-muted);
+    font-size: 0.75rem;
+    line-height: 1.45;
+  }
+
   &__price {
     color: var(--cc-accent);
     font-size: 0.875rem;

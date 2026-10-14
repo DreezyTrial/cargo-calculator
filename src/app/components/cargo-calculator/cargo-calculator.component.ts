@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
+import { DetailsSectionComponent } from '../details-section/details-section.component';
 import { DurationSectionComponent } from '../duration-section/duration-section.component';
-import { ExtrasSectionComponent } from '../extras-section/extras-section.component';
 import { MoversSectionComponent } from '../movers-section/movers-section.component';
 import { OrderModalComponent } from '../order-modal/order-modal.component';
 import { PriceSummaryComponent } from '../price-summary/price-summary.component';
@@ -13,7 +13,7 @@ import { VehicleSelectorComponent } from '../vehicle-selector/vehicle-selector.c
     VehicleSelectorComponent,
     DurationSectionComponent,
     MoversSectionComponent,
-    ExtrasSectionComponent,
+    DetailsSectionComponent,
     PriceSummaryComponent,
     OrderModalComponent,
   ],

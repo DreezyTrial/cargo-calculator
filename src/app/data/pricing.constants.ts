@@ -4,11 +4,6 @@ export const PRICING = {
     minHours: 2,
     floorSurchargePerFloorPerMover: 50,
   },
-  extras: {
-    packing: 350,
-    assembly: 300,
-    heavyItem: 400,
-  },
   duration: {
     maxHours: 10,
   },

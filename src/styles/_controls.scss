@@ -101,7 +101,8 @@
   display: block;
 }
 
-.cc-input {
+.cc-input,
+.cc-textarea {
   width: 100%;
   min-height: 44px;
   padding: 0.625rem 0.75rem;
@@ -111,9 +112,16 @@
   color: #fff;
   font: inherit;
   font-size: 16px;
+  color-scheme: dark;
 
   &:focus {
     outline: none;
     border-color: var(--cc-accent);
   }
+}
+
+.cc-textarea {
+  min-height: 7rem;
+  resize: vertical;
+  line-height: 1.45;
 }

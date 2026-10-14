@@ -5,7 +5,7 @@ Angular-віджет розрахунку вартості вантажопер�
 ## Архітектура (SOLID / DRY)
 
 - **Моделі та константи** — `src/app/models`, `src/app/data`
-- **Розрахунок цін** — окремі калькулятори (`VehiclePriceCalculator`, `MoversPriceCalculator`, `ExtrasPriceCalculator`) + фасад `CargoPricingService`
+- **Розрахунок цін** — окремі калькулятори (`VehiclePriceCalculator`, `MoversPriceCalculator`) + фасад `CargoPricingService`
 - **Стан форми** — `CalculatorStateService`
 - **UI** — дрібні standalone-компоненти в `src/app/components`
 

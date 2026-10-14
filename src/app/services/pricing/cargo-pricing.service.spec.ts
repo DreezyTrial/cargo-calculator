@@ -21,9 +21,6 @@ describe('CargoPricingService', () => {
       hasLiftTo: true,
       floorsFrom: 1,
       floorsTo: 1,
-      needPacking: false,
-      needAssembly: false,
-      isHeavyItem: false,
     });
 
     expect(result.vehicle).toBe(bus.basePrice);
@@ -31,7 +28,7 @@ describe('CargoPricingService', () => {
     expect(result.total).toBe(bus.basePrice);
   });
 
-  it('does not include route or delivery fees', () => {
+  it('does not include extras or delivery fees', () => {
     const gazelle = VEHICLES.find((v) => v.id === 'gazelle')!;
     const result = service.breakdown({
       vehicleId: 'gazelle',
@@ -41,18 +38,13 @@ describe('CargoPricingService', () => {
       hasLiftTo: true,
       floorsFrom: 1,
       floorsTo: 1,
-      needPacking: true,
-      needAssembly: false,
-      isHeavyItem: false,
     });
 
     const movers =
       2 * Math.max(gazelle.minHours, PRICING.movers.minHours) * PRICING.movers.ratePerHourPerMover;
-    const extras = PRICING.extras.packing;
 
     expect(result.vehicle).toBe(gazelle.basePrice);
     expect(result.movers).toBe(movers);
-    expect(result.extras).toBe(extras);
-    expect(result.total).toBe(gazelle.basePrice + movers + extras);
+    expect(result.total).toBe(gazelle.basePrice + movers);
   });
 });

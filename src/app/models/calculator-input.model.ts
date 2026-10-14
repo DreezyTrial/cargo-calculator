@@ -6,14 +6,10 @@ export interface CalculatorInput {
   hasLiftTo: boolean;
   floorsFrom: number;
   floorsTo: number;
-  needPacking: boolean;
-  needAssembly: boolean;
-  isHeavyItem: boolean;
 }
 
 export interface PriceBreakdown {
   vehicle: number;
   movers: number;
-  extras: number;
   total: number;
 }

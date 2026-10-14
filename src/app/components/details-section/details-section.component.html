@@ -1,0 +1,36 @@
+<section class="cc-section">
+  <h2 class="cc-section__title">
+    <span class="cc-section__step">4</span>
+    <span>Дата та додаткові побажання</span>
+  </h2>
+
+  <div class="cc-details">
+    <div class="cc-field">
+      <label class="cc-label cc-label--block" for="orderDate">Дата перевезення</label>
+      <input
+        id="orderDate"
+        class="cc-input"
+        type="date"
+        [min]="state.minOrderDate"
+        [ngModel]="state.orderDate()"
+        (ngModelChange)="state.orderDate.set($event)"
+        required
+      />
+    </div>
+
+    <div class="cc-field">
+      <label class="cc-label cc-label--block" for="extraServicesNote">Додаткові послуги</label>
+      <p class="cc-details__hint">
+        У разі необхідності додаткових послуг (упаковка, складання меблів, сейф/піаніно тощо) опишіть їх нижче. Вартість узгодимо після заявки.
+      </p>
+      <textarea
+        id="extraServicesNote"
+        class="cc-textarea"
+        rows="4"
+        [ngModel]="state.extraServicesNote()"
+        (ngModelChange)="state.extraServicesNote.set($event)"
+        placeholder="Наприклад: потрібна упаковка посуду та розбір шафи"
+      ></textarea>
+    </div>
+  </div>
+</section>

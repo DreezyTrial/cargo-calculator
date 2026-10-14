@@ -15,12 +15,10 @@
       <span>Вантажники ({{ state.moversCount() }} чол):</span>
       <span class="cc-summary__amount">{{ breakdown.movers }} грн</span>
     </div>
-    @if (breakdown.extras > 0) {
-      <div class="cc-summary__row cc-summary__row--extra">
-        <span>Дод. послуги:</span>
-        <span class="cc-summary__amount">+{{ breakdown.extras }} грн</span>
-      </div>
-    }
+    <div class="cc-summary__row">
+      <span>Дата перевезення:</span>
+      <span class="cc-summary__amount">{{ state.formattedOrderDate() }}</span>
+    </div>
   </div>
 
   <div class="cc-summary__total">

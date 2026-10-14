@@ -38,6 +38,30 @@
               required
             />
           </div>
+          <div class="cc-field">
+            <label class="cc-label cc-label--block">Дата замовлення</label>
+            <input
+              class="cc-input"
+              type="date"
+              [min]="state.minOrderDate"
+              [ngModel]="state.orderDate()"
+              (ngModelChange)="state.orderDate.set($event)"
+              name="orderDate"
+              required
+            />
+          </div>
+          <div class="cc-field">
+            <label class="cc-label cc-label--block">Додаткові послуги</label>
+            <p class="cc-modal__hint">Якщо потрібні додаткові послуги — опишіть їх тут.</p>
+            <textarea
+              class="cc-textarea"
+              rows="3"
+              [ngModel]="state.extraServicesNote()"
+              (ngModelChange)="state.extraServicesNote.set($event)"
+              name="extraServicesNote"
+              placeholder="Наприклад: упаковка, розбір меблів"
+            ></textarea>
+          </div>
           <button type="submit" class="cc-btn cc-btn--primary">Підтвердити замовлення</button>
         </form>
       } @else {
