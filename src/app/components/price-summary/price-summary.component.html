@@ -27,11 +27,17 @@
       <span class="cc-summary__total-number">{{ breakdown.total }}</span>
       <span class="cc-summary__total-currency">грн</span>
     </div>
-    <p class="cc-summary__note">Орієнтовна вартість без прихованих платежів</p>
+    <p class="cc-summary__note">Орієнтовна вартість без прихованих платежів.</p>
+    <p class="cc-summary__note">Ціна вказана для перевезення в межах міста та до 21:00.</p>
   </div>
 
+  <p class="cc-alert">
+    <span class="cc-alert__mark">Важливо</span>
+    У разі необхідності виконання додаткових послуг, вказаних вище, вкажіть, будь ласка, в описі або по телефону менеджеру.
+  </p>
+
   <button type="button" class="cc-btn cc-btn--primary cc-btn--desktop" (click)="orderForm.openModal()">
-    Замовити перевезення
+    Залишити заявку
   </button>
 
   <div class="cc-summary__perks">
@@ -50,7 +56,7 @@
         </p>
       </div>
       <button type="button" class="cc-btn cc-btn--primary cc-btn--compact" (click)="orderForm.openModal()">
-        Замовити
+        Залишити заявку
       </button>
     </div>
   </div>

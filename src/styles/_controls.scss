@@ -1,6 +1,6 @@
 .cc-label {
   color: var(--cc-muted-strong);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 500;
 
   &--block {
@@ -43,37 +43,47 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
+  min-height: 48px;
   width: 100%;
   margin: 0;
-  padding: 0.875rem 1rem;
+  padding: 0.875rem 1.25rem;
   border: 0;
-  border-radius: 0.75rem;
+  border-radius: var(--cc-radius-btn);
   font: inherit;
   font-weight: 800;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 0.025em;
+  letter-spacing: 0.08em;
   cursor: pointer;
   max-width: 100%;
 
   &--primary {
-    background: linear-gradient(90deg, var(--cc-accent-strong), var(--cc-accent));
+    background: var(--cc-accent);
     color: var(--cc-on-accent);
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 20%);
 
     &:hover {
-      background: linear-gradient(90deg, var(--cc-accent), #fcd34d);
+      background: var(--cc-accent-strong);
     }
 
     &:active {
-      transform: scale(0.98);
+      transform: scale(0.99);
     }
+  }
+
+  &--ghost {
+    background: transparent;
+    color: var(--cc-accent);
+    min-height: 40px;
+    padding: 0.5rem 0;
+    justify-content: flex-start;
+    text-decoration: underline;
+    text-underline-offset: 0.28em;
+    text-transform: uppercase;
   }
 
   &--desktop {
     display: none;
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
 
     @media (min-width: 1024px) {
       display: inline-flex;
@@ -84,10 +94,33 @@
     width: auto;
     flex-shrink: 0;
     font-size: 0.75rem;
+    padding: 0.75rem 1rem;
 
     @media (min-width: 400px) {
-      font-size: 0.875rem;
+      font-size: 0.8125rem;
     }
+  }
+}
+
+.cc-alert {
+  margin: 0 0 0.75rem;
+  padding: 0.75rem 0.875rem;
+  border: 1px solid var(--cc-accent);
+  border-left-width: 4px;
+  border-radius: var(--cc-radius-btn);
+  background: var(--cc-surface-muted);
+  color: var(--cc-text);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+
+  &__mark {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--cc-accent);
+    font-size: 0.6875rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
 }
 
@@ -107,12 +140,12 @@
   min-height: 44px;
   padding: 0.625rem 0.75rem;
   border: 1px solid var(--cc-border);
-  border-radius: 0.5rem;
-  background: #0f172a;
-  color: #fff;
+  border-radius: var(--cc-radius-btn);
+  background: var(--cc-surface);
+  color: var(--cc-text);
   font: inherit;
   font-size: 16px;
-  color-scheme: dark;
+  color-scheme: light;
 
   &:focus {
     outline: none;

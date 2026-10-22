@@ -6,6 +6,5 @@ export interface VehicleOption {
   basePrice: number;
   extraHourPrice: number;
   minHours: number;
-  icon: string;
   desc: string;
 }

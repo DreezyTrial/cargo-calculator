@@ -1,5 +1,5 @@
-<div class="cc-calculator">
-  @if (!compactHeader()) {
+<div class="cc-calculator" [class.cc-calculator--embed]="embedded()">
+  @if (!hideHeader()) {
     <header class="cc-header">
       <div class="cc-header__brand">
         <div class="cc-header__title-row">
@@ -8,13 +8,6 @@
         </div>
         <p class="cc-header__subtitle">{{ subtitle() }}</p>
       </div>
-      <a class="cc-dispatch" [href]="'tel:' + dispatcherPhone()">
-        <div class="cc-dispatch__text">
-          <p class="cc-dispatch__label">Диспетчерська (24/7)</p>
-          <p class="cc-dispatch__phone">{{ dispatcherPhone() }}</p>
-        </div>
-        <span class="cc-dispatch__status"></span>
-      </a>
     </header>
   }
 

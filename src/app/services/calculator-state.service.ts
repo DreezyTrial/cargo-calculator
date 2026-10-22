@@ -15,6 +15,7 @@ export class CalculatorStateService {
   readonly floorsFrom = signal<number>(1);
   readonly floorsTo = signal<number>(1);
   readonly orderDate = signal<string>(toIsoDate());
+  readonly workDescription = signal<string>('');
   readonly extraServicesNote = signal<string>('');
 
   readonly minOrderDate = toIsoDate();

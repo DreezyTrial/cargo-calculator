@@ -9,7 +9,6 @@ export const VEHICLES: VehicleOption[] = [
     basePrice: 1400,
     extraHourPrice: 700,
     minHours: 2,
-    icon: '🚚',
     desc: 'Чудово підходить для переїзду 1-кімнатної квартири або доставки побутової техніки.',
   },
   {
@@ -20,7 +19,6 @@ export const VEHICLES: VehicleOption[] = [
     basePrice: 1500,
     extraHourPrice: 750,
     minHours: 2,
-    icon: '🚛',
     desc: 'Оптимально для 2-3 кімнатних квартир, офісів та великогабаритних меблів.',
   },
   {
@@ -31,7 +29,6 @@ export const VEHICLES: VehicleOption[] = [
     basePrice: 4500,
     extraHourPrice: 1500,
     minHours: 3,
-    icon: '📦',
     desc: 'Для масштабних офісних переїздів, обладнання та великих об\'ємів.',
   },
 ];

@@ -1,0 +1,5 @@
+@mixin cc-min($px) {
+  @container cc (min-width: #{$px}px) {
+    @content;
+  }
+}

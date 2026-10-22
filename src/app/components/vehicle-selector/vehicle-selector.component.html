@@ -13,7 +13,38 @@
         (click)="selectVehicle(v.id)"
       >
         <div class="cc-vehicle-card__body">
-          <div class="cc-vehicle-card__icon">{{ v.icon }}</div>
+          <div class="cc-vehicle-card__icon" aria-hidden="true">
+            @switch (v.id) {
+              @case ('bus') {
+                <svg viewBox="0 0 56 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M8 26V16l6-7h32v17H8z" />
+                  <path d="M14 9v7h11" />
+                  <path d="M5 26h6.5M20.5 26h12M41.5 26h7" />
+                  <circle cx="17" cy="26" r="3" />
+                  <circle cx="38" cy="26" r="3" />
+                </svg>
+              }
+              @case ('gazelle') {
+                <svg viewBox="0 0 56 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 26V14h12V9h31v17H7z" />
+                  <rect x="10" y="16" width="7" height="5" rx="0.5" />
+                  <path d="M4 26h6.5M21.5 26h11M41.5 26h8" />
+                  <circle cx="14.5" cy="26" r="3" />
+                  <circle cx="38" cy="26" r="3" />
+                </svg>
+              }
+              @case ('5ton') {
+                <svg viewBox="0 0 56 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 26V14h10V8h27v18H6z" />
+                  <path d="M43 13v13h9" />
+                  <rect x="9" y="16" width="6" height="5" rx="0.5" />
+                  <path d="M3 26h6.5M20.5 26h11M40 26h5" />
+                  <circle cx="13.5" cy="26" r="3" />
+                  <circle cx="33.5" cy="26" r="3" />
+                </svg>
+              }
+            }
+          </div>
           <h3 class="cc-vehicle-card__name">{{ v.name }}</h3>
           <div class="cc-vehicle-card__meta">
             <p>Вантажопідйомність: <span class="cc-vehicle-card__value">{{ v.capacity }}</span></p>

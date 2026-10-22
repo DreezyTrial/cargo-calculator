@@ -9,6 +9,7 @@
           Попередня вартість:
           <span class="cc-modal__price">{{ state.priceBreakdown().total }} грн</span>
         </p>
+        <p class="cc-modal__hint">Ціна вказана для перевезення в межах міста та до 21:00.</p>
 
         <form class="cc-form" (submit)="submitOrder($event)">
           <div class="cc-field">
@@ -51,6 +52,18 @@
             />
           </div>
           <div class="cc-field">
+            <label class="cc-label cc-label--block">Опис виконання робіт</label>
+            <p class="cc-modal__hint">Напишіть, що приблизно потрібно перевезти.</p>
+            <textarea
+              class="cc-textarea"
+              rows="3"
+              [ngModel]="state.workDescription()"
+              (ngModelChange)="state.workDescription.set($event)"
+              name="workDescription"
+              placeholder="Наприклад: диван, шафа, холодильник і 10 коробок"
+            ></textarea>
+          </div>
+          <div class="cc-field">
             <label class="cc-label cc-label--block">Додаткові послуги</label>
             <p class="cc-modal__hint">Якщо потрібні додаткові послуги — опишіть їх тут.</p>
             <textarea
@@ -62,7 +75,12 @@
               placeholder="Наприклад: упаковка, розбір меблів"
             ></textarea>
           </div>
-          <button type="submit" class="cc-btn cc-btn--primary">Підтвердити замовлення</button>
+          <p class="cc-alert">
+            <span class="cc-alert__mark">Важливо</span>
+            У разі необхідності виконання додаткових послуг, вказаних вище, вкажіть, будь ласка, в описі або по телефону менеджеру.
+          </p>
+
+          <button type="submit" class="cc-btn cc-btn--primary">Залишити заявку</button>
         </form>
       } @else {
         <div class="cc-modal__success">

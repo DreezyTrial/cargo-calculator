@@ -11,14 +11,37 @@
         <button
           type="button"
           class="cc-choice"
-          [class.cc-choice--active]="state.moversCount() === count"
+          [class.cc-choice--active]="!isCustomCount() && state.moversCount() === count"
           [class.cc-choice--wide]="count === 0"
           (click)="state.moversCount.set(count)"
         >
           {{ count === 0 ? 'Без вантажників' : count + ' чол' }}
         </button>
       }
+      <button
+        type="button"
+        class="cc-choice"
+        [class.cc-choice--active]="isCustomCount()"
+        (click)="selectCustom()"
+      >
+        Більше
+      </button>
     </div>
+    @if (isCustomCount()) {
+      <div class="cc-movers-custom">
+        <label class="cc-label cc-label--block" for="customMovers">Скільки вантажників потрібно</label>
+        <input
+          id="customMovers"
+          class="cc-input"
+          type="number"
+          inputmode="numeric"
+          [min]="customMin"
+          [max]="customMax"
+          [ngModel]="state.moversCount()"
+          (ngModelChange)="setCustomCount($event)"
+        />
+      </div>
+    }
   </div>
 
   @if (state.moversCount() > 0) {

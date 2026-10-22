@@ -13,6 +13,7 @@ body {
 
 html {
   -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 .cc-page {
@@ -21,5 +22,17 @@ html {
   background: var(--cc-bg);
   color: var(--cc-text);
   font-family: var(--cc-font);
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+  text-rendering: auto;
+}
+
+html.cc-embed,
+html.cc-embed body.cc-page--embed {
+  height: auto;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--cc-bg);
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
 }

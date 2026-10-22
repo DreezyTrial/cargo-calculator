@@ -19,6 +19,21 @@
     </div>
 
     <div class="cc-field">
+      <label class="cc-label cc-label--block" for="workDescription">Опис виконання робіт</label>
+      <p class="cc-details__hint">
+        Напишіть, що  потрібно перевезти: меблі, техніка, коробки, обсяг квартири тощо.
+      </p>
+      <textarea
+        id="workDescription"
+        class="cc-textarea"
+        rows="4"
+        [ngModel]="state.workDescription()"
+        (ngModelChange)="state.workDescription.set($event)"
+        placeholder="Наприклад: переїзд 1-кімнатної квартири, диван, шафа, холодильник і 10 коробок"
+      ></textarea>
+    </div>
+
+    <div class="cc-field">
       <label class="cc-label cc-label--block" for="extraServicesNote">Додаткові послуги</label>
       <p class="cc-details__hint">
         У разі необхідності додаткових послуг (упаковка, складання меблів, сейф/піаніно тощо) опишіть їх нижче. Вартість узгодимо після заявки.
