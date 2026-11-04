@@ -3,6 +3,7 @@ import {
   Component,
   computed,
   DestroyRef,
+  effect,
   ElementRef,
   inject,
   input,
@@ -14,6 +15,7 @@ import { MoversSectionComponent } from '../movers-section/movers-section.compone
 import { OrderModalComponent } from '../order-modal/order-modal.component';
 import { PriceSummaryComponent } from '../price-summary/price-summary.component';
 import { VehicleSelectorComponent } from '../vehicle-selector/vehicle-selector.component';
+import { CalculatorStateService } from '../../services/calculator-state.service';
 import { applyEmbedPageClass, isEmbedded, postEmbedHeight } from '../../utils/embed.util';
 
 @Component({
@@ -33,6 +35,7 @@ import { applyEmbedPageClass, isEmbedded, postEmbedHeight } from '../../utils/em
 export class CargoCalculatorComponent {
   private readonly host = inject(ElementRef<HTMLElement>);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly state = inject(CalculatorStateService);
 
   readonly title = input<string>('DniproMove');
   readonly subtitle = input<string>('Швидкий розрахунок та онлайн-замовлення вантажоперевезень');
@@ -43,6 +46,8 @@ export class CargoCalculatorComponent {
   readonly hideHeader = computed(() => this.compactHeader() ?? this.embedded());
 
   constructor() {
+    effect(() => this.state.cityLabel.set(this.cityLabel()));
+
     afterNextRender(() => {
       const embedded = isEmbedded();
       this.embedded.set(embedded);

@@ -3,8 +3,7 @@ export interface VehicleOption {
   name: string;
   capacity: string;
   volume: string;
-  basePrice: number;
-  extraHourPrice: number;
+  hourlyRate: number;
   minHours: number;
   desc: string;
 }

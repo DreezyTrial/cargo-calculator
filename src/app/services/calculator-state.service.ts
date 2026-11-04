@@ -17,6 +17,7 @@ export class CalculatorStateService {
   readonly orderDate = signal<string>(toIsoDate());
   readonly workDescription = signal<string>('');
   readonly extraServicesNote = signal<string>('');
+  readonly cityLabel = signal<string>('Дніпро');
 
   readonly minOrderDate = toIsoDate();
   readonly formattedOrderDate = computed(() => formatUkDate(this.orderDate()));

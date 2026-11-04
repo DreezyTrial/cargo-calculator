@@ -23,9 +23,9 @@ describe('CargoPricingService', () => {
       floorsTo: 1,
     });
 
-    expect(result.vehicle).toBe(bus.basePrice);
+    expect(result.vehicle).toBe(bus.hourlyRate * bus.minHours);
     expect(result.movers).toBe(0);
-    expect(result.total).toBe(bus.basePrice);
+    expect(result.total).toBe(bus.hourlyRate * bus.minHours);
   });
 
   it('does not include extras or delivery fees', () => {
@@ -43,8 +43,8 @@ describe('CargoPricingService', () => {
     const movers =
       2 * Math.max(gazelle.minHours, PRICING.movers.minHours) * PRICING.movers.ratePerHourPerMover;
 
-    expect(result.vehicle).toBe(gazelle.basePrice);
+    expect(result.vehicle).toBe(gazelle.hourlyRate * gazelle.minHours);
     expect(result.movers).toBe(movers);
-    expect(result.total).toBe(gazelle.basePrice + movers);
+    expect(result.total).toBe(gazelle.hourlyRate * gazelle.minHours + movers);
   });
 });

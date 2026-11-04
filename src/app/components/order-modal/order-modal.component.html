@@ -80,11 +80,16 @@
             У разі необхідності виконання додаткових послуг, вказаних вище, вкажіть, будь ласка, в описі або по телефону менеджеру.
           </p>
 
-          <button type="submit" class="cc-btn cc-btn--primary">Залишити заявку</button>
+          @if (orderForm.submitError()) {
+            <p class="cc-modal__error">{{ orderForm.submitError() }}</p>
+          }
+
+          <button type="submit" class="cc-btn cc-btn--primary" [disabled]="orderForm.isSubmitting()">
+            {{ orderForm.isSubmitting() ? 'Надсилаємо…' : 'Залишити заявку' }}
+          </button>
         </form>
       } @else {
         <div class="cc-modal__success">
-          <div class="cc-modal__success-icon">🎉</div>
           <h4 class="cc-modal__success-title">Заявку прийнято!</h4>
           <p class="cc-modal__success-text">Диспетчер передзвонить вам протягом 5 хвилин для уточнення деталей.</p>
         </div>
