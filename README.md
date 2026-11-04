@@ -19,6 +19,14 @@ docker compose up --build
 
 Віджет: `http://localhost:8080/`.
 
+## Vercel
+
+Статичний віджет (як Docker): `npm run build:widget`, каталог `dist/cargo-calculator/browser`. Після деплою iframe можна вставляти з `https://<проєкт>.vercel.app/embed.js`.
+
+```bash
+npx vercel --prod
+```
+
 ## Вбудовування на основний сайт
 
 У потрібне місце в `body` вставте контейнер і скрипт. Iframe сам підлаштує **ширину 100%** і **висоту** під контент, розкладка реагує на ширину блоку (телефон / планшет / десктоп).
