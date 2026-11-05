@@ -56,7 +56,10 @@
           <span class="cc-vehicle-card__min">мін. {{ v.minHours }} год</span>
         </div>
       </button>
+      @if (state.selectedVehicleId() === v.id) {
+        <p class="cc-hint cc-hint--inline">💡 {{ v.desc }}</p>
+      }
     }
   </div>
-  <p class="cc-hint">💡 {{ state.selectedVehicle().desc }}</p>
+  <p class="cc-hint cc-hint--below">💡 {{ state.selectedVehicle().desc }}</p>
 </section>
