@@ -122,4 +122,19 @@
   color: var(--cc-muted-strong);
   font-size: 0.875rem;
   line-height: 1.45;
+
+  &--inline {
+    display: none;
+    margin: 0;
+  }
+}
+
+@container cc (max-width: 519px) {
+  .cc-hint--inline {
+    display: block;
+  }
+
+  .cc-hint--below {
+    display: none;
+  }
 }
