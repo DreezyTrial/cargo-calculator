@@ -5,7 +5,7 @@
   </h2>
 
   <div>
-    <label class="cc-label cc-label--block">Кількість вантажників ({{ ratePerHour }} грн/год за особу)</label>
+    <label class="cc-label cc-label--block">Кількість вантажників ({{ ratePerHour() }} грн/год за особу)</label>
     <div class="cc-choice-grid">
       @for (count of moverOptions; track count) {
         <button
