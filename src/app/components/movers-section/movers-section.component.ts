@@ -1,7 +1,7 @@
 import { Component, computed, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { PRICING } from '../../data/pricing.constants';
 import { CalculatorStateService } from '../../services/calculator-state.service';
+import { moverHourlyRate } from '../../services/pricing/movers-price.calculator';
 
 @Component({
   selector: 'app-movers-section',
@@ -15,7 +15,14 @@ export class MoversSectionComponent {
   readonly moverOptions = [0, 1, 2, 3, 4] as const;
   readonly customMin = 5;
   readonly customMax = 20;
-  readonly ratePerHour = PRICING.movers.ratePerHourPerMover;
+  readonly ratePerHour = computed(() =>
+    moverHourlyRate({
+      hasLiftFrom: this.state.hasLiftFrom(),
+      hasLiftTo: this.state.hasLiftTo(),
+      floorsFrom: this.state.floorsFrom(),
+      floorsTo: this.state.floorsTo(),
+    }),
+  );
 
   readonly isCustomCount = computed(() => this.state.moversCount() >= this.customMin);
 
