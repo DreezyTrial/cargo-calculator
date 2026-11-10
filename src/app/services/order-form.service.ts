@@ -1,5 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { OrderRequest } from '../models/order-request.model';
+import { postEmbedConversion } from '../utils/embed.util';
 
 function orderApiUrl(): string {
   const host = window.location.hostname;
@@ -49,6 +50,7 @@ export class OrderFormService {
       }
 
       this.orderSubmitted.set(true);
+      postEmbedConversion();
       setTimeout(() => this.closeModal(), 3000);
     } catch {
       this.submitError.set('Не вдалося надіслати заявку. Спробуйте ще раз або зателефонуйте менеджеру.');

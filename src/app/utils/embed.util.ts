@@ -1,4 +1,5 @@
 export const EMBED_RESIZE_MESSAGE = 'cargo-calculator:resize';
+export const EMBED_CONVERSION_MESSAGE = 'cargo-calculator:conversion';
 
 export function isEmbedded(): boolean {
   if (typeof window === 'undefined') {
@@ -31,4 +32,21 @@ export function postEmbedHeight(height: number): void {
     },
     '*',
   );
+}
+
+export function postEmbedConversion(): void {
+  if (typeof window === 'undefined' || window.parent === window) {
+    return;
+  }
+
+  let targetOrigin = '*';
+  if (document.referrer) {
+    try {
+      targetOrigin = new URL(document.referrer).origin;
+    } catch {
+      targetOrigin = '*';
+    }
+  }
+
+  window.parent.postMessage({ type: EMBED_CONVERSION_MESSAGE }, targetOrigin);
 }
